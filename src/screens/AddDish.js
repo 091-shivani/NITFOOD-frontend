@@ -10,6 +10,7 @@ function AddDish() {
     half: "",
     full: "",
     email: localStorage.getItem("userEmail"),
+    description: "",
   });
 
   const handleSubmit = async (e) => {
@@ -107,6 +108,19 @@ function AddDish() {
                 name="full"
                 id="exampleInputfullPlate"
                 value={dish.full}
+                onChange={onChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputdescription" className="form-label">
+                description
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                name="description"
+                id="exampleInputdescription"
+                value={dish.description}
                 onChange={onChange}
               />
             </div>
