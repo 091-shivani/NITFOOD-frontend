@@ -1,5 +1,7 @@
+import "../App.css";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatchCart, useCart } from "./ContextReducer";
+
 export default function Card(props) {
   let dispatch = useDispatchCart();
   let data = useCart();
@@ -37,7 +39,6 @@ export default function Card(props) {
     for (const item of data) {
       if (item.id === props.foodItem._id) {
         food = item;
-
         break;
       }
     }
@@ -58,6 +59,7 @@ export default function Card(props) {
           price: finalPrice,
           qty: qty,
           size: size,
+          email: props.foodItem.email,
         });
         return;
       } //console.log(data)
@@ -70,15 +72,17 @@ export default function Card(props) {
       price: finalPrice,
       qty: qty,
       size: size,
+      email: props.foodItem.email,
     });
   };
   let finalPrice = qty * parseInt(options[size]);
   useEffect(() => {
     setSize(priceRef.current.value);
   }, []);
+
   return (
-    <div style={{ margin: "10px" }}>
-      <div className="card mt-3" style={{ width: "18rem", maxHeight: "500px" }}>
+    <div className="mycard" style={{ margin: "10px" }}>
+      <div style={{ width: "17rem", maxHeight: "500px" }}>
         <img
           src={props.foodItem.img}
           className="card-img-top"
@@ -91,7 +95,7 @@ export default function Card(props) {
           <div>{props.foodItem.description}</div>
           <div className="container w-100">
             <select
-              className="m-2 h-100 bg-success rounded"
+              className=" myselect m-2 h-100 rounded"
               onChange={(e) => setQty(e.target.value)}
             >
               {Array.from(Array(6), (e, i) => {
@@ -104,7 +108,7 @@ export default function Card(props) {
               })}
             </select>
             <select
-              className="m-2 h-100 bg-success rounded"
+              className="myselect m-2 h-100 rounded"
               ref={priceRef}
               onChange={(e) => setSize(e.target.value)}
             >
@@ -121,7 +125,7 @@ export default function Card(props) {
 
           <hr></hr>
           <button
-            className={"btn btn-success justify-center ms-2"}
+            className={" justify-center ms-2 mybtn "}
             onClick={handleAddToCart}
           >
             Add to Cart

@@ -5,6 +5,8 @@ import Modal from "../Modal";
 import Card from "./Card";
 import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
+import "../App.css";
+
 export default function Navbar() {
   const [cartView, setCartView] = useState(false);
   let data = useCart();
@@ -15,9 +17,13 @@ export default function Navbar() {
   };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark ">
+      <nav className="navbar navbar-expand-lg mynavbar ">
         <div className="container-fluid">
-          <Link className="navbar-brand fs-1 fst-italic" to="/">
+          <Link
+            className="navbar-brand fs-1 fst-italic"
+            style={{ color: "black" }}
+            to="/"
+          >
             NITFood
           </Link>
           <button
@@ -32,15 +38,25 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav me-auto mb-2">
+            <ul className="navbar-nav me-auto ">
               <li className="nav-item">
-                <Link className="btn  mx-1" aria-current="page" to="/">
+                <Link
+                  className="btn  mx-1"
+                  style={{ color: "black" }}
+                  aria-current="page"
+                  to="/"
+                >
                   Home
                 </Link>
               </li>
               {localStorage.getItem("authToken") ? (
                 <li className="nav-item">
-                  <Link className="btn  mx-1" aria-current="page" to="/myOrder">
+                  <Link
+                    className="btn  mx-1"
+                    style={{ color: "black" }}
+                    aria-current="page"
+                    to="/myOrder"
+                  >
                     My Order
                   </Link>
                 </li>
@@ -49,7 +65,12 @@ export default function Navbar() {
               )}
               {localStorage.getItem("authToken") ? (
                 <li className="nav-item">
-                  <Link className="btn  mx-1" aria-current="page" to="/addDish">
+                  <Link
+                    className="btn  mx-1"
+                    style={{ color: "black" }}
+                    aria-current="page"
+                    to="/addDish"
+                  >
                     Add Dish
                   </Link>
                 </li>
@@ -59,23 +80,48 @@ export default function Navbar() {
             </ul>
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
-                <Link className="btn  mx-1" to="/login">
+                <Link
+                  className="btn  mx-1"
+                  style={{ color: "black" }}
+                  to="/login"
+                >
                   Login
                 </Link>
-                <Link className="btn  mx-1" to="/createuser">
+                <Link
+                  className="btn  mx-1"
+                  style={{ color: "black" }}
+                  to="/createuser"
+                >
                   SignUp
                 </Link>
               </div>
             ) : (
               <div>
-                {/* <div className='btn bg-white text-success mx-2' onClick={()=> setCartView(true)}>
-                  My Cart {"  "}
-                  <Badge pill bg="danger">{data.length}</Badge>
-                </div>
-                {cartView ? <Modal onClose={()=> setCartView(false)}><Cart/></Modal> :null}
-                <div className='btn bg-white text-danger mx-2' onClick={handleLogout}>
-                  Logout
-                </div> */}
+                {
+                  <div>
+                    <div
+                      className="btn bg-white text-success mx-2"
+                      style={{ color: "black" }}
+                      onClick={() => setCartView(true)}
+                    >
+                      My Cart {"  "}
+                      <Badge pill bg="danger">
+                        {data.length}
+                      </Badge>
+                    </div>
+                    {cartView ? (
+                      <Modal onClose={() => setCartView(false)}>
+                        <Cart />
+                      </Modal>
+                    ) : null}
+                    <div
+                      className="btn bg-white text-danger mx-2"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </div>
+                  </div>
+                }
               </div>
             )}
           </div>

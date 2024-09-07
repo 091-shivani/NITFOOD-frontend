@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import "../App.css";
 
 function AddDish() {
   const [dish, setDish] = useState({
@@ -45,14 +46,14 @@ function AddDish() {
       <div>
         <Navbar />
         <div className="container">
-          <form className="border bg-dark  login1" onSubmit={handleSubmit}>
+          <form className="login1" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="exampleInputcategory" className="form-label">
                 Category Name
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="CategoryName"
                 id="exampleInputcategory"
                 value={dish.CategoryName}
@@ -65,7 +66,7 @@ function AddDish() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="name"
                 id="exampleInputName"
                 value={dish.name}
@@ -78,7 +79,7 @@ function AddDish() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="img"
                 id="exampleInputImg"
                 value={dish.img}
@@ -91,7 +92,7 @@ function AddDish() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="half"
                 id="exampleInputHalfPlate"
                 value={dish.half}
@@ -104,7 +105,7 @@ function AddDish() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="full"
                 id="exampleInputfullPlate"
                 value={dish.full}
@@ -117,7 +118,7 @@ function AddDish() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className=" myinput "
                 name="description"
                 id="exampleInputdescription"
                 value={dish.description}
@@ -125,7 +126,7 @@ function AddDish() {
               />
             </div>
 
-            <button type="submit" className="m-3 btn btn-secondary">
+            <button type="submit" className="m-3 mybtn">
               Submit
             </button>
           </form>

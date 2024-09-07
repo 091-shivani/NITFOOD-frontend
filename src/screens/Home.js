@@ -30,7 +30,7 @@ export default function Home() {
       <div>
         <Navbar />{" "}
       </div>
-      <div>
+      {/* <div>
         <div
           id="carouselExampleFade"
           className="carousel slide carousel-fade "
@@ -40,8 +40,7 @@ export default function Home() {
             <div class=" carousel-caption  " style={{ zIndex: "10" }}>
               <div className=" d-flex justify-content-center">
                 {" "}
-                {/* justify-content-center, copy this <form> from navbar for search box */}
-                <input
+                {/* <input
                   className="form-control me-2 w-75 bg-white text-dark"
                   type="search"
                   placeholder="Type in..."
@@ -50,8 +49,8 @@ export default function Home() {
                   onChange={(e) => {
                     setsearch(e.target.value);
                   }}
-                />
-                {/* <button className="btn text-white bg-success" type="submit">Search</button> */}
+                /> */}
+      {/* <button className="btn text-white bg-success" type="submit">Search</button> }
               </div>
             </div>
             <div className="carousel-item active">
@@ -104,7 +103,7 @@ export default function Home() {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-      </div>
+      </div> */}
 
       <div className="container">
         {foodCat.length !== 0
